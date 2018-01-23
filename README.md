@@ -21,9 +21,17 @@ The text will turn green when a debuff is active on the target. In the case of S
 Clone the repository and extract to Addons folder. Remove "-master" from folder name.
 
 To change settings edit the ArmorDebuffTool.lua file.
-if u wanna add or remove stuff it's fairly intuitive to do it on your own with the current code.
+
+If you want to add or remove stuff it's fairly intuitive to do it on your own with the current code.
 
 ## Bugs and other stuff
 
 probably plenty
+
+shows 1 armor reduced by default, currently unable to set zero from the start because the addon just breaks then(??)
+
+Might be a few armor wrong, but I should have fixed it now, it will now only be one armor too much if there is no sunder on the target.
+
 try to implement draggable frame somewhere along the path.
+
+
