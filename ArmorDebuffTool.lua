@@ -59,8 +59,6 @@ base = "Armor reduced:    "
 SunderStacks = 0
 ShatterStacks = 0
 MinusArmor = 0
-
-
 -- Sets up basic frame stuff
 ArmorDebuffTool = CreateFrame('Frame')
 ArmorDebuffTool:SetFrameStrata("BACKGROUND")
@@ -69,6 +67,33 @@ ArmorDebuffTool:SetWidth(110)
 ArmorDebuffTool:SetHeight(50)
 ArmorDebuffTool:SetBackdrop(backdrop)
 ArmorDebuffTool:SetBackdropColor(0, 0, 0, 0.5)
+
+	ArmorDebuffTool:SetClampedToScreen(true)
+	ArmorDebuffTool:SetMovable(true)
+	ArmorDebuffTool:RegisterForDrag('LeftButton')
+	
+	function ArmorDebuffTool:on_drag_stop()
+		this:StopMovingOrSizing()
+		local x, y = this:GetCenter()
+		local ux, uy = UIParent:GetCenter()
+		--ArmorDebuffTool_settings.x, ArmorDebuffTool_settings.y = floor(x - ux + 0.5), floor(y - uy + 0.5)
+		this.dragging = false
+	end
+	ArmorDebuffTool:SetScript('OnDragStart', function()
+		this.dragging = true
+		this:StartMoving()
+	end)
+	ArmorDebuffTool:SetScript('OnDragStop', function()
+		this:on_drag_stop()
+	end)
+	ArmorDebuffTool:SetScript('OnUpdate', function()
+		this:EnableMouse(IsAltKeyDown())
+		if not IsAltKeyDown() and this.dragging then
+			this:on_drag_stop()
+		end
+		--ArmorDebuffTool.on_update()
+end)
+
 
 -- Makes frame draggable
 
