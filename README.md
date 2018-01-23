@@ -2,7 +2,7 @@
 Credit to kevmodrome aka Myakaa, I basically took his addon and with his blessing edited it to support armor debuffs. 
 https://github.com/kevmodrome/SpellPowerMulti
 
-Easily get an overview of current -armor debuffs on the target (currently only sunder, annihilator, faeire fire and curse of reck) as well as a counter for the amount of armor reduced
+Easily get an overview of current -armor debuffs on the target as well as a counter for the amount of armor reduced
 
 The current version checks the following debuffs on target:
 * Curse of Recklessness (CoR)
