@@ -14,13 +14,14 @@ The text will turn green when a debuff is active on the target. In the case of S
 
 ## Screenshot
 
-![Image showing the addon in action]
+![Image showing the addon in action] (https://i.imgur.com/X8oyrF3.png)
 
 ## Installation
 
 Clone the repository and extract to Addons folder. Remove "-master" from folder name.
 
 To change settings edit the ArmorDebuffTool.lua file.
+if u wanna add or remove stuff it's fairly intuitive to do it on your own with the current code.
 
 ## Bugs and other stuff
 
