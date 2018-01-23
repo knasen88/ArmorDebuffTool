@@ -14,7 +14,7 @@ The text will turn green when a debuff is active on the target. In the case of S
 
 ## Screenshot
 
-![Image showing the addon in action] (https://i.imgur.com/X8oyrF3.png)
+![Image showing the addon in action](https://i.imgur.com/X8oyrF3.png)
 
 ## Installation
 
