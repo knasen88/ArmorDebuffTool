@@ -35,4 +35,6 @@ Might be a few armor wrong, but I should have fixed it now, it will now only be 
 try to implement draggable frame somewhere along the path.
 Dragging now works, can't save position yet.
 
+As of now simply either drag the addon or edit the position X and Y -- commented away from the beginning of the .lua
+
 
