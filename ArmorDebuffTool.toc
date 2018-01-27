@@ -1,6 +1,8 @@
 ##Interface:11200
 ##Title: ArmorDebuffTool
 ##Notes: Shows what buffs/debuffs are up on the player/target and calculates how big the damage multiplier is.
+## SavedVariablesPerCharacter: ArmorDebuffTool_settings
 ##OptionalDeps: -- Optional dependencies.
 ##Dependencies:
+
 ArmorDebuffTool.lua

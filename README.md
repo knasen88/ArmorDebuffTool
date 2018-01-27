@@ -33,5 +33,6 @@ shows 1 armor reduced by default, currently unable to set zero from the start be
 Might be a few armor wrong, but I should have fixed it now, it will now only be one armor too much if there is no sunder on the target.
 
 try to implement draggable frame somewhere along the path.
+Dragging now works, can't save position yet.
 
 

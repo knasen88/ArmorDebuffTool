@@ -1,8 +1,13 @@
 -- Basic Options and setup
 class = "warrior" -- Change between "warlock", "sp", "frost", "fire"
-positionX = 0 -- Change X position of window
-positionY = -200 -- Change Y position of window
-
+--positionX = 0 -- Change X position of window
+--positionY = -200 -- Change Y position of window
+--ArmorDebuffTool_settings = { x = 0, y = -240 }
+BF_POS = {
+		[1] = "CENTER",
+		[2] = 0,
+		[3] = -100,
+}
 function checkDebuffs()
   -- Reset debuffs
   ArmorDebuffTool.ff:SetTextColor(1, 0, 0, 1)
@@ -21,9 +26,9 @@ function checkDebuffs()
       ArmorDebuffTool.ff:SetTextColor(0, 1, 0, 1)
 	  MinusArmor = MinusArmor + 505
     end
-    if name == "Interface\\Icons\\inv_axe_12" then -- Check Annajalaijtor stacks
+    if name == "Interface\\Icons\\Inv_Axe_12" then -- Check Annajalaijtor stacks
 		ShatterStacks = SAstack
-		MinusArmor = MinusArmor * (1+200*ShatterStacks)
+		MinusArmor = MinusArmor + (200*ShatterStacks)
 		--MinusArmor = MinusArmor - 1
 		if ShatterStacks < 3 then
 			ArmorDebuffTool.ann:SetTextColor(1, 1, 0, 1)
@@ -60,22 +65,25 @@ SunderStacks = 0
 ShatterStacks = 0
 MinusArmor = 0
 -- Sets up basic frame stuff
-ArmorDebuffTool = CreateFrame('Frame')
+ArmorDebuffTool = CreateFrame('Frame', ArmorDebuffTool)
 ArmorDebuffTool:SetFrameStrata("BACKGROUND")
 ArmorDebuffTool:SetPoint("CENTER", positionX, positionY)
 ArmorDebuffTool:SetWidth(110)
 ArmorDebuffTool:SetHeight(50)
 ArmorDebuffTool:SetBackdrop(backdrop)
 ArmorDebuffTool:SetBackdropColor(0, 0, 0, 0.5)
-
+--ArmorDebuffTool:SetParent(UIParent)
+--function ArmorDebuffTool:VARIABLES_LOADED()
+	
 	ArmorDebuffTool:SetClampedToScreen(true)
 	ArmorDebuffTool:SetMovable(true)
 	ArmorDebuffTool:RegisterForDrag('LeftButton')
-	
+	ArmorDebuffTool:CreateTitleRegion():SetAllPoints()
+	ArmorDebuffTool:SetUserPlaced(enable)
 	function ArmorDebuffTool:on_drag_stop()
 		this:StopMovingOrSizing()
-		local x, y = this:GetCenter()
-		local ux, uy = UIParent:GetCenter()
+		--local x, y = this:GetCenter()
+		--local ux, uy = UIParent:GetCenter()
 		--ArmorDebuffTool_settings.x, ArmorDebuffTool_settings.y = floor(x - ux + 0.5), floor(y - uy + 0.5)
 		this.dragging = false
 	end
@@ -92,9 +100,17 @@ ArmorDebuffTool:SetBackdropColor(0, 0, 0, 0.5)
 			this:on_drag_stop()
 		end
 		--ArmorDebuffTool.on_update()
-end)
+	end)
 
+--end
+--function VCB_SAVEFRAMEPOS()
+	--local point, _, _, xOfs, yOfs = VCB_BF_BUFF_FRAME:GetPoint()
+	--ArmorDebuffTool["BF_POS"] = {}
+	--ArmorDebuffTool["BF_POS"][1] = point;
+	--ArmorDebuffTool["BF_POS"][2] = xOfs;
+	--ArmorDebuffTool["BF_POS"][3] = yOfs;
 
+--end
 -- Makes frame draggable
 
 
@@ -144,4 +160,4 @@ ArmorDebuffTool:RegisterEvent('PLAYER_TARGET_CHANGED')
 
 --  TODO
 -- Clean up and fix everything
---fix movable frame from ingame
+--fix movable frame from ingame and save its position
